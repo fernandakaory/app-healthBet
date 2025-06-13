@@ -1,0 +1,24 @@
+{
+  "financas": [
+    { "mes": "Jan", "gasto": 1200, "recebido": 250 },
+    { "mes": "Fev", "gasto": 850, "recebido": 300 },
+    { "mes": "Mar", "gasto": 950, "recebido": 100 },
+    { "mes": "Abr", "gasto": 1400, "recebido": 400 },
+    { "mes": "Mai", "gasto": 1600, "recebido": 200 }
+  ],
+  "tempo": [
+    { "mes": "Jan", "tempoApostas": 90, "tempoOutrosApps": 20 },
+    { "mes": "Fev", "tempoApostas": 110, "tempoOutrosApps": 30 },
+    { "mes": "Mar", "tempoApostas": 95, "tempoOutrosApps": 40 },
+    { "mes": "Abr", "tempoApostas": 130, "tempoOutrosApps": 25 },
+    { "mes": "Mai", "tempoApostas": 160, "tempoOutrosApps": 15 }
+  ],
+  "ganhosVsPerdas": [
+    { "mes": "Jan", "ganhos": 150, "perdas": 1050 },
+    { "mes": "Fev", "ganhos": 200, "perdas": 650 },
+    { "mes": "Mar", "ganhos": 100, "perdas": 850 },
+    { "mes": "Abr", "ganhos": 300, "perdas": 1100 },
+    { "mes": "Mai", "ganhos": 200, "perdas": 1400 }
+  ]
+  
+}
