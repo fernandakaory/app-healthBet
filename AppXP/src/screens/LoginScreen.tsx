@@ -3,11 +3,12 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'reac
 import { StackScreenProps } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+// Tipagem das rotas do Stack
 type RootStackParamList = {
   Welcome: undefined;
   Login: undefined;
   Register: undefined;
-  Home: undefined;
+  MainTabs: { screen?: 'Home' | 'Material' | 'Sugestoes' | 'Painel' };
 };
 
 type LoginScreenProps = StackScreenProps<RootStackParamList, 'Login'>;
@@ -23,17 +24,20 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  //Lógica de login e async storage
+  // Lógica de login e async storage
   const handleLogin = async () => {
     try {
       const storedUsers = await AsyncStorage.getItem('users');
       const users: User[] = storedUsers ? JSON.parse(storedUsers) : [];
 
-      const foundUser = users.find((user: User) => user.email === email && user.password === password);
+      const foundUser = users.find(
+        (user: User) => user.email === email && user.password === password
+      );
 
       if (foundUser) {
         Alert.alert('Sucesso', `Bem-vindo, ${foundUser.name}!`);
-        navigation.navigate('Home');
+        // Corrigido: navegar para MainTabs, abrindo a aba Home
+        navigation.navigate('MainTabs', { screen: 'Home' });
       } else {
         Alert.alert('Erro', 'Email ou senha incorretos.');
       }
@@ -53,7 +57,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       <View style={styles.containerForm}>
         <Text style={styles.message}>Email</Text>
         <TextInput
-          placeholder='Digite seu email...'
+          placeholder="Digite seu email..."
           style={styles.input}
           value={email}
           onChangeText={setEmail}
@@ -63,7 +67,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
         <Text style={styles.message}>Senha</Text>
         <TextInput
-          placeholder='Digite sua senha...'
+          placeholder="Digite sua senha..."
           secureTextEntry
           style={styles.input}
           value={password}
@@ -78,7 +82,9 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
           style={styles.buttonRegister}
           onPress={() => navigation.navigate('Register')}
         >
-          <Text style={styles.registerText}>Não possui uma conta? Cadastre-se</Text>
+          <Text style={styles.registerText}>
+            Não possui uma conta? Cadastre-se
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

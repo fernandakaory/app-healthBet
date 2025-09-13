@@ -74,7 +74,7 @@ const MaterialScreen: React.FC<MaterialScreenProps> = ({ navigation }) => {
             </TouchableOpacity>
           </ScrollView>
         </View>
-        <View style={styles.tabBar}>
+        {/* <View style={styles.tabBar}>
           <TouchableOpacity style={styles.tabButton} onPress={() => navigation.navigate('Home')}>
             <Image source={require('../../assets/images/home.png')} style={styles.tabIcon} />
           </TouchableOpacity>
@@ -87,7 +87,7 @@ const MaterialScreen: React.FC<MaterialScreenProps> = ({ navigation }) => {
           <TouchableOpacity style={styles.tabButton} onPress={() => navigation.navigate('Sugestoes')}>
             <Image source={require('../../assets/images/profits.png')} style={styles.tabIcon} />
           </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
     </SafeAreaView>
   );
