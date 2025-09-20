@@ -5,22 +5,22 @@
 - Pedro Emerici Gava | RM551043
 - Pedro Henrique Menezes | RM97432
 
-# 🎯 HealthBet
+# HealthBet
 
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)](https://github.com/seu-usuario/seu-repositorio)  
 [![React Native](https://img.shields.io/badge/React_Native-0.71-blue)](https://reactnative.dev/)  
 
-## 🪪 Como Entrar no App?
+## Como Entrar no App?
 Para acessar as principais telas do aplicativo, é necessário primeiro cadastrar um usuário na página de Cadastro e, em seguida, realizar o login para desbloquear as demais funcionalidades.
 
-## 📌 Descrição
+## Descrição
 Aplicativo mobile voltado para monitoramento e educação financeira de usuários que utilizam aplicativos e sites de apostas. Ele combina funcionalidades de acompanhamento de ganhos e perdas, controle do tempo de uso (futuramente), além de oferecer conteúdos educativos e recomendações de investimento, promovendo hábitos financeiros responsáveis.
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
-### 📲 Cadastro de Usuário
+### Cadastro de Usuário
 - Formulário para registro de novos usuários.
 - Armazenamento seguro de dados via **Async Storage** para persistência local.  
 <p align="center">
@@ -29,7 +29,7 @@ Aplicativo mobile voltado para monitoramento e educação financeira de usuário
 
 ---
 
-### 👋 Tela de Welcome
+### Tela de Welcome
 - Tela inicial com duas opções: **Login** ou **Cadastro**.
 - Orienta o usuário para iniciar ou criar conta.  
 <p align="center">
@@ -38,7 +38,7 @@ Aplicativo mobile voltado para monitoramento e educação financeira de usuário
 
 ---
 
-### 🔑 Login
+### Login
 - Validação das credenciais inseridas.
 - Consulta ao **Async Storage** para autenticação segura.  
 <p align="center">
@@ -47,7 +47,7 @@ Aplicativo mobile voltado para monitoramento e educação financeira de usuário
 
 ---
 
-### 🏠 Home
+### Home
 - Apresenta a solução do aplicativo e suas principais funcionalidades.
 - Conteúdo introdutório para guiar o usuário.  
 <p align="center">
@@ -56,7 +56,7 @@ Aplicativo mobile voltado para monitoramento e educação financeira de usuário
 
 ---
 
-### 📊 Dashboard
+### Dashboard
 - Visualização simulada de dados de apostas:
   - Valores ganhos vs. perdidos.
   - Total ganho no mês e gastos com apostas.
@@ -67,7 +67,7 @@ Aplicativo mobile voltado para monitoramento e educação financeira de usuário
 
 ---
 
-### 💡 Indicação de Investimentos
+### Indicação de Investimentos
 - Dicas e recomendações de investimento.
 - Conteúdos multimídia, incluindo vídeos e links externos.  
 <p align="center">
@@ -76,7 +76,7 @@ Aplicativo mobile voltado para monitoramento e educação financeira de usuário
 
 ---
 
-### 📚 Material Educativo
+### Material Educativo
 - Materiais complementares de educação financeira.
 - Vídeos, artigos e guias para conscientização sobre hábitos financeiros e apostas.  
 <p align="center">
@@ -85,7 +85,7 @@ Aplicativo mobile voltado para monitoramento e educação financeira de usuário
 
 ---
 
-## 🗂 Estrutura de Fluxo do Usuário
+## Estrutura de Fluxo do Usuário
 1. **Welcome:** Escolha entre login ou cadastro.  
 2. **Cadastro:** Criar nova conta (usuários novos).  
 3. **Login:** Autenticar usuário existente.  
