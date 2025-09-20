@@ -69,20 +69,6 @@ const SugestoesScreen: React.FC<SugestoesScreenProps> = ({ navigation }) => {
             </TouchableOpacity>
           </ScrollView>
         </View>
-        {/* <View style={styles.tabBar}>
-          <TouchableOpacity style={styles.tabButton} onPress={() => navigation.navigate('Home')}>
-            <Image source={require('../../assets/images/home.png')} style={styles.tabIcon} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tabButton} onPress={() => navigation.navigate('Painel')}>
-            <Image source={require('../../assets/images/dashboard.png')} style={styles.tabIcon} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tabButton} onPress={() => navigation.navigate('Material')}>
-            <Image source={require('../../assets/images/play.png')} style={styles.tabIcon} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tabButton} onPress={() => navigation.navigate('Sugestoes')}>
-            <Image source={require('../../assets/images/profits.png')} style={styles.tabIcon} />
-          </TouchableOpacity>
-        </View> */}
       </View>
     </SafeAreaView>
   );

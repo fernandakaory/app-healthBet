@@ -35,8 +35,6 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       );
 
       if (foundUser) {
-        Alert.alert('Sucesso', `Bem-vindo, ${foundUser.name}!`);
-        // Corrigido: navegar para MainTabs, abrindo a aba Home
         navigation.navigate('MainTabs', { screen: 'Home' });
       } else {
         Alert.alert('Erro', 'Email ou senha incorretos.');
