@@ -19,47 +19,69 @@ const RegisterScreen: React.FC<RegisterScreenProps> = ({ navigation }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   interface User {
-  name: string;
-  birthdate: string;
-  email: string;
-  password: string;
-}
-
-const handleRegister = async () => {
-  if (!name || !birthdate || !email || !password || !confirmPassword) {
-    Alert.alert('Erro', 'Por favor, preencha todos os campos.');
-    return;
+    name: string;
+    birthdate: string;
+    email: string;
+    password: string;
   }
 
-  if (password !== confirmPassword) {
-    Alert.alert('Erro', 'As senhas não coincidem.');
-    return;
-  }
-
-  try {
-    const userData: User = { name, birthdate, email, password };
-
-    const storedUsers = await AsyncStorage.getItem('users');
-    const users: User[] = storedUsers ? JSON.parse(storedUsers) : [];
-
-    const exists = users.some((user: User) => user.email === email);
-    if (exists) {
-      Alert.alert('Erro', 'Já existe um usuário com esse e-mail.');
+  const handleRegister = async () => {
+    if (!name || !birthdate || !email || !password || !confirmPassword) {
+      Alert.alert('Erro', 'Por favor, preencha todos os campos.');
       return;
     }
 
-    users.push(userData);
-    await AsyncStorage.setItem('users', JSON.stringify(users));
+    // validação: senhas iguais
+    if (password !== confirmPassword) {
+      Alert.alert('Erro', 'As senhas não coincidem.');
+      return;
+    }
 
-    Alert.alert('Sucesso', 'Cadastro realizado com sucesso!');
-    navigation.navigate('Login');
-  } catch (error) {
-    Alert.alert('Erro', 'Não foi possível salvar os dados.');
-    console.error(error);
-  }
-};
+    // validação: maior de idade
+    const parts = birthdate.split('/');
+    if (parts.length !== 3) {
+      Alert.alert('Erro', 'Data de nascimento inválida. Use o formato dd/mm/aaaa.');
+      return;
+    }
 
-// Formulário de cadastro
+    const [day, month, year] = parts.map(Number);
+    const birth = new Date(year, month - 1, day);
+    const today = new Date();
+    const age = today.getFullYear() - birth.getFullYear();
+    const birthdayPassed =
+      today.getMonth() > birth.getMonth() ||
+      (today.getMonth() === birth.getMonth() && today.getDate() >= birth.getDate());
+    const realAge = birthdayPassed ? age : age - 1;
+
+    if (realAge < 18) {
+      Alert.alert('Erro', 'Você precisa ter pelo menos 18 anos para se cadastrar.');
+      return;
+    }
+
+    try {
+      const userData: User = { name, birthdate, email, password };
+
+      const storedUsers = await AsyncStorage.getItem('users');
+      const users: User[] = storedUsers ? JSON.parse(storedUsers) : [];
+
+      const exists = users.some((user: User) => user.email === email);
+      if (exists) {
+        Alert.alert('Erro', 'Já existe um usuário com esse e-mail.');
+        return;
+      }
+
+      users.push(userData);
+      await AsyncStorage.setItem('users', JSON.stringify(users));
+
+      Alert.alert('Sucesso', 'Cadastro realizado com sucesso!');
+      navigation.navigate('Login');
+    } catch (error) {
+      Alert.alert('Erro', 'Não foi possível salvar os dados.');
+      console.error(error);
+    }
+  };
+
+  // Formulário de cadastro
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -144,7 +166,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     color: 'black',
-    
   },
   formContainer: {
     flex: 1,

@@ -70,12 +70,12 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
           {/* Dicas de investimento */}
           <View style={styles.section}>
             <Image source={require('../../assets/images/money.png')} style={styles.image} />
-            <Text style={styles.sectionTitle}>Recomendações de Investimentos</Text>
+            <Text style={styles.sectionTitle}>Sugestões de Investimentos</Text>
             <Text style={styles.sectionText}>
               Sugestões de como aplicar seu dinheiro de forma saudável e produtiva.
             </Text>
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Sugestoes')}>
-              <Text style={styles.buttonText}>Ver Recomendações</Text>
+              <Text style={styles.buttonText}>Ver Sugestões</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
